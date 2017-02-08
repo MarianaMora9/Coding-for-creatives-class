@@ -9,7 +9,7 @@ function draw () {
 	
 	var x = 0;
 	var y = 0;
-	var speed = 5;
+	var speed = 10;
 
 	while(x > width) 
 		while(y > height) {
@@ -22,9 +22,17 @@ function draw () {
 	
 	for(var x = 0; x <= width; x += 100)
 		for(var y = 0; y <= mouseY; y += 100) {
-		fill(random(150), 0, random(150));
+		fill(random(350), 0, random(350));
 		ellipse(x, y, 50, 50);
 	}
+
+	private void bounceOffVerticalWall() {
+        vx = -vx;
+    }
+
+     private void bounceOffHorizontalWall() {
+        vy = -vy;
+    }
 
 	if (y > height || y < 0) {
 		speed=speed * -1;
