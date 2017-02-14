@@ -10,6 +10,8 @@ function draw () {
 	var x = 0;
 	var y = 0;
 	var speed = 10;
+	var vx = StdRandom.uniform(-0.015, 0.015);
+    var vy = StdRandom.uniform(-0.015, 0.015);
 
 	while(x > width) 
 		while(y > height) {
