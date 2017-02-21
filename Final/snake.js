@@ -50,12 +50,24 @@ function Snake() {
   }
 
   this.draw = function() {
-    fill(255);
+    fill(35,144,59);
     rect(this.x, this.y, scl, scl);
     for(var i = 0; i < this.tail.length; i++) {
       rect(this.tail[i].x,
           this.tail[i].y,
           scl, scl);
+    }
+  }
+
+  this.death = function() {
+    for (var i = 0; i < this.tail.length; i++) {
+      var pos = this.tail[i];
+      var d = dist(this.x, this.y, pos.x, pos.y);
+      if (d < 1){
+        console.log('starting over');
+        this.total = 0;
+        this.tail = [];
+      }
     }
   }
 }
