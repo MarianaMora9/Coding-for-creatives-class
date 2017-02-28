@@ -23,6 +23,22 @@ function Snake() {
     }
   }
 
+  this.tail = function (splice) {
+    this.tail.splice(0);
+  }
+
+  this.checkTouchItself = function() {
+      if (false) {this.points.--;
+      this.tail.touchitself(delete(this.x,this.y));
+      console.log(this.points - " points")
+    }
+  }
+
+  this.restart = function() {
+    if (true) {this.tail(createVector(this.x,this.y))
+    } 
+  }
+
   this.move = function() {
     // put last square of tail in front of the line
     if (this.tail.length > 0) {
@@ -59,15 +75,16 @@ function Snake() {
     }
   }
 
-  this.death = function() {
-    for (var i = 0; i < this.tail.length; i++) {
-      var pos = this.tail[i];
-      var d = dist(this.x, this.y, pos.x, pos.y);
-      if (d < 1){
-        console.log('starting over');
-        this.total = 0;
-        this.tail = [];
+  //this.death = function() {
+    //for (var i = 0; i < this.tail.length; i++) {
+     // var pos = this.tail[i];
+      //var d = dist(this.x, this.y, pos.x, pos.y);
+     // if (d < 1){
+      // console.log('starting over');
+       // this.total = 0;
+       // this.tail = [];
       }
     }
   }
 }
+

@@ -4,14 +4,14 @@ var food;
 
 function setup() {
   createCanvas(scl * 30, scl * 30);
+  img = loadImage("image/1.jpg");
   snake = new Snake();
   food  = new Food();
   frameRate(10);
 }
 
 function draw() {
-  background(64,87,143);
-
+  image(img,0,0)
   snake.eat(food);
   snake.move();
   snake.draw();
