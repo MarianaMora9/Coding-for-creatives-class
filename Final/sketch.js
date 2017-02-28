@@ -11,7 +11,7 @@ function setup() {
 
 function preload(){
   picture = loadImage('image/1.jpg');
-  food = loadImage('images/manzana.png'); 
+  food = loadImage('image/manzana.png'); 
 }
 
 function draw() {
