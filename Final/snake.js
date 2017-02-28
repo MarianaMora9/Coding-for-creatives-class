@@ -28,7 +28,6 @@ function Snake() {
   }
 
   this.checkTouchItself = function() {
-      if (false) {this.points.--;
       this.tail.touchitself(delete(this.x,this.y));
       console.log(this.points - " points")
     }
