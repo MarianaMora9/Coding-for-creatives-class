@@ -6,6 +6,8 @@ function Snake() {
   this.tail = [];
   this.points = 0;
 
+  this.touched = false;
+
   this.dir = function(x, y) {
     if (x != 0 && this.xspeed != x * (-1)
         || y != 0 && this.yspeed != y * (-1)) {
@@ -20,22 +22,8 @@ function Snake() {
       this.points++;
       this.tail.push(createVector(this.x, this.y));
       console.log(this.points + " points");
+      picIndex++;
     }
-  }
-
-  this.tail = function (splice) {
-    this.tail.splice(0);
-  }
-
-  this.checkTouchItself = function() {
-      this.tail.touchitself(delete(this.x,this.y));
-      console.log(this.points - " points")
-    }
-  }
-
-  this.restart = function() {
-    if (true) {this.tail(createVector(this.x,this.y))
-    } 
   }
 
   this.move = function() {
@@ -65,25 +53,27 @@ function Snake() {
   }
 
   this.draw = function() {
-    fill(35,144,59);
-    rect(this.x, this.y, scl, scl);
+    fill(255);
+    noStroke();
+    ellipse(this.x, this.y, scl, scl);
     for(var i = 0; i < this.tail.length; i++) {
-      rect(this.tail[i].x,
+      ellipse(this.tail[i].x,
           this.tail[i].y,
           scl, scl);
-    }
-  }
-
-  //this.death = function() {
-    //for (var i = 0; i < this.tail.length; i++) {
-     // var pos = this.tail[i];
-      //var d = dist(this.x, this.y, pos.x, pos.y);
-     // if (d < 1){
-      // console.log('starting over');
-       // this.total = 0;
-       // this.tail = [];
+      if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
+        this.touched = true;
       }
     }
-  }
-}
 
+    if (this.touched) {
+      this.restart();
+    }
+  }
+
+  this.restart = function() {
+    this.tail.splice(0);
+    this.touched = false;
+  }
+  //
+
+}

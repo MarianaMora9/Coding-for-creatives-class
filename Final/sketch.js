@@ -1,6 +1,12 @@
 var scl = 20;
 var snake;
 var food;
+var apple;
+//var appleSize = 50;
+
+var pictures = [];
+
+var picIndex = 0;
 
 function setup() {
   createCanvas(scl * 30, scl * 30);
@@ -10,12 +16,31 @@ function setup() {
 }
 
 function preload(){
-  picture = loadImage('image/1.jpg');
-  food = loadImage('image/manzana.png'); 
+  pictures[0] = loadImage('image/1.jpg');
+  pictures[1] = loadImage('image/2.jpg');
+  pictures[2] = loadImage('image/3.jpg');
+  pictures[3] = loadImage('image/4.jpg');
+  pictures[4] = loadImage('image/5.jpg');
+  pictures[5] = loadImage('image/6.jpg');
+  pictures[6] = loadImage('image/7.jpg');
+  pictures[7] = loadImage('image/8.jpg');
+  pictures[8] = loadImage('image/9.jpg');
+  pictures[9] = loadImage('image/10.jpg');
+  pictures[10] = loadImage('image/11.jpg');
+  pictures[11] = loadImage('image/12.jpg');
+  pictures[12] = loadImage('image/13.jpg');
+  pictures[13] = loadImage('image/14.jpg');
+  pictures[14] = loadImage('image/15.jpg');  
+  apple = loadImage('image/manzana.png'); 
 }
 
 function draw() {
-  background (picture); 
+  if (picIndex > 14) {
+      picIndex = 0;
+  }
+  console.log(picIndex);
+
+  background (pictures[picIndex]); 
   snake.eat(food);
   snake.move();
   snake.draw();
